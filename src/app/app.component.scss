@@ -1,0 +1,268 @@
+:host {
+  font-family: "Segoe UI", sans-serif;
+  display: block;
+  background: #f3e3cf;
+  color: #333;
+  min-height: 100vh;
+}
+
+button.selecionado {
+  border: 2px solid #002f6c;
+  background: #004080;
+  color: #fff;
+}
+
+.taca {
+  margin-top: 100px; // pode aumentar ou reduzir
+}
+
+.header {
+  text-align: center;
+  background: #002f6c;
+  color: #ffd700;
+  padding: 2rem 1rem; // mais espaçamento
+
+  .logo {
+    width: 160px; // antes 80px → agora maior
+    margin-bottom: 1rem;
+    border-radius: 16px; // bordas levemente arredondadas
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); // sombra forte em volta
+  }
+}
+
+.montagem {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem;
+  gap: 2rem;
+
+  .visualizacao {
+    text-align: center;
+
+    .gelato {
+      position: relative;
+      width: 200px;
+      margin: 0 auto;
+
+      .camada {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+      }
+
+      .camada-base {
+        top: 125px;
+        left: -10px;
+        width: 110%; // aumenta para posicionar mais para baixo
+      }
+
+      .camada-recheio {
+        top: 20px; // altura em relação à taça/base
+        width:140%; // ajuste se necessário
+        z-index: 3; // sobre a base
+        left: -35px; // ou deslocar um pouco para direita se desejar
+      }
+
+      .camada-cobertura {
+        top: 10px; // altura em relação à taça/base
+        width:140%; // ajuste se necessário
+        z-index: 4; // sobre o recheio
+        left: -35px; // ou deslocar um pouco para direita se desejar
+      }
+    }
+
+    .preco {
+      margin-top: 450px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #002f6c;
+    }
+  }
+
+  .opcoes {
+    h2 {
+      margin-bottom: 1rem;
+      color: #002f6c;
+    }
+    .grupo {
+      margin-bottom: 1rem;
+      h3 {
+        color: #444;
+        margin-bottom: 0.5rem;
+      }
+      button {
+        margin: 0.25rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 12px;
+        background: #ffd700;
+        cursor: pointer;
+        &:hover {
+          background: #ffcd00;
+        }
+      }
+    }
+    .acoes {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+
+      button {
+        flex: 1;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:first-child {
+          background: #002f6c; // azul escuro
+          color: #fff;
+          &:hover {
+            background: #004080;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          }
+        }
+
+        &:last-child {
+          background: #ffd700; // amarelo ouro
+          color: #002f6c;
+          &:hover {
+            background: #ffcd00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          }
+        }
+      }
+    }
+  }
+}
+
+.finalizacao,
+.confirmado {
+  text-align: center;
+  padding: 2rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 1rem auto;
+
+    input,
+    select {
+      margin-bottom: 0.75rem;
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      background: #002f6c;
+      color: #fff;
+      cursor: pointer;
+      &:hover {
+        background: #004080;
+      }
+    }
+  }
+}
+
+.confirmado button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #002f6c;
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background: #004080;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.equipe {
+  background: #fafafa;
+  padding: 2rem;
+  text-align: center;
+
+  .membros {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+
+    .membro {
+      img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+      }
+      p {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}
+
+.menu {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
+  a {
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffd700;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: rgba(255, 215, 0, 0.2);
+    }
+
+    &.ativo {
+      background: #ffd700;
+      color: #002f6c;
+    }
+  }
+}
+
+.linha-especial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  text-align: center;
+
+  .logo-encantos {
+    width: 300px;
+    margin-bottom: 0.5rem;
+  }
+
+  .selo {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #8b0000;
+    background: #ffe4b5;
+    padding: 4px 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+}
