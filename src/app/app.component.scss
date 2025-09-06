@@ -17,16 +17,22 @@ button.selecionado {
 }
 
 .header {
+   position: relative;   // garante que não “vaze” para fora
+  left: 0;
+  top: 0;
+  width: 100vw;         // largura da viewport, não só do container
+  margin: 0;            // remove espaçamentos externos
   text-align: center;
   background: #002f6c;
   color: #ffd700;
-  padding: 2rem 1rem; // mais espaçamento
+  padding: 2rem 1rem;
+  box-sizing: border-box;
 
   .logo {
-    width: 160px; // antes 80px → agora maior
+    width: 160px;
     margin-bottom: 1rem;
-    border-radius: 16px; // bordas levemente arredondadas
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); // sombra forte em volta
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -69,6 +75,13 @@ button.selecionado {
         width:140%; // ajuste se necessário
         z-index: 4; // sobre o recheio
         left: -35px; // ou deslocar um pouco para direita se desejar
+      }
+
+      .camada-sabor {
+        top: 0px; // altura em relação à taça/base
+        width: 140%; // ajuste se necessário
+        z-index: 5; // sobre o recheio
+        left: 0px; // ou deslocar um pouco para direita se desejar
       }
     }
 

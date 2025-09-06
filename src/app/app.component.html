@@ -27,15 +27,15 @@
     <div class="membros">
       <div class="membro">
         <img src="https://i.pravatar.cc/150?img=3" />
-        <p>Ana – Designer</p>
+        <p>Fulano de tal – Função</p>
       </div>
       <div class="membro">
         <img src="https://i.pravatar.cc/150?img=4" />
-        <p>João – Dev Frontend</p>
+        <p>Fulano de tal – Função</p>
       </div>
       <div class="membro">
         <img src="https://i.pravatar.cc/150?img=5" />
-        <p>Maria – Dev Backend</p>
+        <p>Fulano de tal – Função</p>
       </div>
     </div>
   </section>
@@ -63,6 +63,7 @@
           [class.camada-base]="ing === baseSelecionada"
           [class.camada-recheio]="ing === recheioSelecionado"
           [class.camada-cobertura]="ing === coberturaSelecionada"
+          [class.camada-sabor]="ing === saborSelecionado"
           alt="ingrediente" />
       </div>
       <div class="preco">Total: R$ {{ precoTotal }}</div>
@@ -96,7 +97,9 @@
       </div>
       <div class="grupo">
         <h3>Sabores Exclusivos</h3>
-        <button *ngFor="let s of sabores" (click)="selecionarIngrediente(s)">
+        <button *ngFor="let s of sabores" 
+        (click)="selecionarSabor(s)"
+        [class.selecionado]="saborSelecionado === s">
           {{ s.nome }}
         </button>
       </div>

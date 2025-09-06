@@ -24,8 +24,22 @@ export class AppComponent {
   recheioSelecionado: Ingrediente | null = null;
   coberturaSelecionada: Ingrediente | null = null;
   selecionados: Ingrediente[] = [];
+  saborSelecionado: Ingrediente | null = null;
+
+  selecionarSabor(s: Ingrediente) {
+    this.limpar();
+    this.selecionados = this.selecionados.filter(
+      (ing) => ing !== this.saborSelecionado
+    );
+    this.saborSelecionado = s;
+    if (s) {
+      this.selecionados.push(s);
+    }
+    this.atualizarPreco();
+  }
 
   selecionarBase(b: Ingrediente) {
+    this.limparEspecial();
     // remover base anterior da lista
     this.selecionados = this.selecionados.filter(
       (ing) => ing !== this.baseSelecionada
@@ -38,8 +52,9 @@ export class AppComponent {
     // atualizar preço
     this.atualizarPreco();
   }
-  
+
   selecionarRecheio(r: Ingrediente) {
+    this.limparEspecial()
     this.selecionados = this.selecionados.filter(
       (ing) => ing !== this.recheioSelecionado
     );
@@ -51,6 +66,7 @@ export class AppComponent {
   }
 
   selecionarCobertura(c: Ingrediente) {
+    this.limparEspecial();
     this.selecionados = this.selecionados.filter(
       (ing) => ing !== this.coberturaSelecionada
     );
@@ -59,6 +75,15 @@ export class AppComponent {
       this.selecionados.push(c);
     }
     this.atualizarPreco();
+  }
+
+  limparEspecial() {
+    if (this.saborSelecionado) {
+      this.selecionados = this.selecionados.filter(
+        (ingrediente) => ingrediente !== this.saborSelecionado
+      );
+      this.saborSelecionado = null; // opcional, se quiser "desmarcar"
+    }
   }
 
   atualizarPreco() {
@@ -91,11 +116,13 @@ export class AppComponent {
     { nome: 'Goiabada', imagem: 'assets/rec_pistache.png', preco: 5 },
     { nome: 'Frutas Vermelhas', imagem: 'assets/rec_frutas.png', preco: 7 },
   ];
+
   coberturas: Ingrediente[] = [
-    {nome: 'Chocolate', imagem: 'assets/cob_choco.png', preco: 3},
-    { nome: 'Morando', imagem: 'assets/cob_mor.png', preco: 4 },
+    { nome: 'Chocolate', imagem: 'assets/cob_choco.png', preco: 3 },
+    { nome: 'Morango', imagem: 'assets/cob_mor.png', preco: 4 },
     { nome: 'Maracujá', imagem: 'assets/cob_mar.png', preco: 4 },
   ];
+
   sabores: Ingrediente[] = [
     {
       nome: 'Doce de leite c/ parmesão',
